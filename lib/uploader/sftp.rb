@@ -32,7 +32,7 @@ module Uploader
     end
 
     def site
-      [host, port].join(':')
+      [hostname, port].join(':')
     end
 
     def send_files!(entries)
