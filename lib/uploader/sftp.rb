@@ -37,7 +37,7 @@ module Uploader
 
     def send_files!(entries)
       logger.debug('FTP session started.')
-      Net::SFTP.start(site, user, password: password, auth_methods: %w[password]) do |sftp|
+      Net::SFTP.start(hostname, user, port: port, password: password, auth_methods: %w[password]) do |sftp|
         logger.debug(["connected to host #{host}", "directory: #{directory}"].join(', '))
         entries.each do |entry|
           filename = Pathname(entry).basename
