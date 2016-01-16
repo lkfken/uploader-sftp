@@ -10,7 +10,7 @@ module Uploader
     attr_reader :host, :directory, :logger
 
     def initialize(params={})
-      @logger = params.fetch(:logger, Logger.new(STDOUT))
+      @logger    = params.fetch(:logger, Logger.new(STDOUT))
       @host      = params.fetch(:host)
       @directory = params.fetch(:directory, '.')
     end
@@ -21,6 +21,14 @@ module Uploader
 
     def port
       host.port
+    end
+
+    def user
+      host.user
+    end
+
+    def password
+      host.password
     end
 
     def site
