@@ -31,10 +31,6 @@ module Uploader
       host.password
     end
 
-    def site
-      [hostname, port].join(':')
-    end
-
     def send_files!(entries)
       logger.debug('FTP session started.')
       Net::SFTP.start(hostname, user, port: port, password: password, auth_methods: %w[password]) do |sftp|
