@@ -1,4 +1,4 @@
-# Uploader::Sftp
+# Uploader::SFTP
 
 Upload files to a SFTP site.
 
@@ -7,7 +7,7 @@ Upload files to a SFTP site.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'uploader-sftp'
+gem 'uploader-sftp', :require => 'uploader/sftp'
 ```
 
 And then execute:
