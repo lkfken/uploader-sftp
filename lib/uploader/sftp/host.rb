@@ -1,13 +1,14 @@
 module Uploader
   class SFTP
     class Host
-      attr_accessor :password, :hostname, :port, :user, :ssh_options
+      attr_accessor :password, :port, :user, :ssh_options
+      attr_reader :hostname
 
       def initialize(params={})
         @hostname = params.fetch(:hostname)
         @port     = params.fetch(:port, 22)
-        @user     = params.fetch(:user)
-        @password = params.fetch(:password)
+        @user     = params.fetch(:user, nil)
+        @password = params.fetch(:password, nil)
       end
 
       def to_s
