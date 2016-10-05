@@ -1,4 +1,5 @@
 require 'logger'
+require 'net/sftp'
 
 require_relative '../core_ext/hash'
 
