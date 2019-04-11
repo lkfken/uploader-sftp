@@ -42,10 +42,11 @@ module Uploader
           logger.debug "#{entry} sent."
         end
       end
-      logger.debug('FTP session ended.')
+      logger.debug('SFTP session ended successfully.')
     rescue => ex
       logger.fatal ex.class
       logger.fatal ex.message
+      logger.fatal 'SFTP session failed!'
       raise ex
     end
   end
