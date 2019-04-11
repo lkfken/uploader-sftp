@@ -33,7 +33,7 @@ module Uploader
     end
 
     def send_files!(entries)
-      logger.debug('FTP session started.')
+      logger.debug('SFTP session started.')
       Net::SFTP.start(hostname, user, port: port, password: password, auth_methods: %w[password]) do |sftp|
         logger.debug(["connected to host #{host}", "directory: #{directory}"].join(', '))
         entries.each do |entry|
@@ -43,6 +43,10 @@ module Uploader
         end
       end
       logger.debug('FTP session ended.')
+    rescue => ex
+      logger.fatal ex.class
+      logger.fatal ex.message
+      raise ex
     end
   end
 end
